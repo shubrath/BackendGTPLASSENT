@@ -13,11 +13,11 @@ public class OrganizationProductMapping {
     @Column(name = "mapping_id")
     private Integer mappingId;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "organization_id", nullable = false)
     private Organization organization;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 }
