@@ -38,4 +38,17 @@ public class AdminService {
     public void deleteAdmin(Long id) {
         adminRepository.deleteById(id);
     }
+    
+    public Optional<Admin> authenticateAdmin(String email, String password) {
+        Optional<Admin> adminOpt = adminRepository.findByEmailId(email);
+        if (adminOpt.isPresent()) {
+            Admin admin = adminOpt.get();
+            // Check if the entered password matches the stored password (no hashing)
+            if (password.equals(admin.getPassword())) {
+                return Optional.of(admin);  // Authentication success
+            }
+        }
+        return Optional.empty(); // Authentication failed
+    }
+    
 }

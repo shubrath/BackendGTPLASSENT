@@ -1,7 +1,6 @@
 package com.gtpl.Assent.Entity;
 
 
-
 import jakarta.persistence.*;
 
 @Entity
@@ -54,4 +53,7 @@ public class Admin {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+
+    
 }

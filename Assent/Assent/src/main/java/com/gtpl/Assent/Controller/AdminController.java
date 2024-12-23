@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/admins")
@@ -47,4 +48,15 @@ public class AdminController {
         adminService.deleteAdmin(id);
         return ResponseEntity.noContent().build();
     }
+    
+    @PostMapping("/login")
+    public ResponseEntity<Admin> login(@RequestBody Admin loginAdmin) {
+        Optional<Admin> adminOpt = adminService.authenticateAdmin(loginAdmin.getEmailId(), loginAdmin.getPassword());
+        if (adminOpt.isPresent()) {
+            return ResponseEntity.ok(adminOpt.get());  // Authentication successful
+        } else {
+            return ResponseEntity.status(401).build(); // Unauthorized (Invalid credentials)
+        }
+    }
+    
 }
