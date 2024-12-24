@@ -19,8 +19,19 @@ public class OrganizationProductMappingService {
         this.mappingRepository = mappingRepository;
     }
 
-    // Create or Update
+//    // Create or Update
+//    public OrganizationProductMapping saveOrUpdateMapping(OrganizationProductMapping mapping) {
+//        return mappingRepository.save(mapping);
+//    }
+    
     public OrganizationProductMapping saveOrUpdateMapping(OrganizationProductMapping mapping) {
+        if (mapping.getOrganization() == null || mapping.getOrganization().getOrganizationId() == null) {
+            throw new IllegalArgumentException("Invalid Organization ID");
+        }
+        if (mapping.getProduct() == null || mapping.getProduct().getProductId() == null) {
+            throw new IllegalArgumentException("Invalid Product ID");
+        }
+
         return mappingRepository.save(mapping);
     }
 

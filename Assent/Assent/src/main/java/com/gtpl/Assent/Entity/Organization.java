@@ -19,9 +19,9 @@ public class Organization {
     @JoinColumn(name = "super_admin_id", nullable = false)
     private SuperAdmin superAdmin;
 
-    @ManyToOne
-    @JoinColumn(name = "admin_id", nullable = false)
-    private Admin admin;
+//    @ManyToOne
+//    @JoinColumn(name = "admin_id", nullable = false)
+//    private Admin admin;
 
 	public Integer getOrganizationId() {
 		return organizationId;
@@ -47,20 +47,20 @@ public class Organization {
 		this.superAdmin = superAdmin;
 	}
 
-	public Admin getAdmin() {
-		return admin;
-	}
+//	public Admin getAdmin() {
+//		return admin;
+//	}
+//
+//	public void setAdmin(Admin admin) {
+//		this.admin = admin;
+//	}
 
-	public void setAdmin(Admin admin) {
-		this.admin = admin;
-	}
-
-	public Organization(Integer organizationId, String name, SuperAdmin superAdmin, Admin admin) {
+	public Organization(Integer organizationId, String name, SuperAdmin superAdmin) {
 		super();
 		this.organizationId = organizationId;
 		this.name = name;
 		this.superAdmin = superAdmin;
-		this.admin = admin;
+//		this.admin = admin;
 	}
 
 	public Organization() {

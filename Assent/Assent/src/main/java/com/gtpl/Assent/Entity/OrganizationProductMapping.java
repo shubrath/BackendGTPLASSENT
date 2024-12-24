@@ -13,12 +13,22 @@ public class OrganizationProductMapping {
     @Column(name = "mapping_id")
     private Integer mappingId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "organization_id", nullable = false)
+//    private Organization organization;
+//
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "product_id", nullable = false)
+//    private Product product;
+    
+    @ManyToOne
     @JoinColumn(name = "organization_id", nullable = false)
     private Organization organization;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 }
+
+
 

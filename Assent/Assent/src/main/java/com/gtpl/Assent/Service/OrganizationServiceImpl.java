@@ -35,7 +35,7 @@ public class OrganizationServiceImpl implements OrganizationService{
 	        return organizationRepository.findById(id).map(org -> {
 	            org.setName(updatedOrganization.getName());
 	            org.setSuperAdmin(updatedOrganization.getSuperAdmin());
-	            org.setAdmin(updatedOrganization.getAdmin());
+	            //org.setAdmin(updatedOrganization.getAdmin());
 	            return organizationRepository.save(org);
 	        }).orElseThrow(() -> new RuntimeException("Organization not found with ID: " + id));
 	    }

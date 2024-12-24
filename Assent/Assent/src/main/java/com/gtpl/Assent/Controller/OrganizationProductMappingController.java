@@ -20,8 +20,15 @@ public class OrganizationProductMappingController {
     }
 
     // Create or Update
+//    @PostMapping
+//    public ResponseEntity<OrganizationProductMapping> createOrUpdateMapping(@RequestBody OrganizationProductMapping mapping) {
+//        OrganizationProductMapping savedMapping = mappingService.saveOrUpdateMapping(mapping);
+//        return ResponseEntity.ok(savedMapping);
+//    }
+    
     @PostMapping
     public ResponseEntity<OrganizationProductMapping> createOrUpdateMapping(@RequestBody OrganizationProductMapping mapping) {
+        System.out.println("Received Mapping: " + mapping);
         OrganizationProductMapping savedMapping = mappingService.saveOrUpdateMapping(mapping);
         return ResponseEntity.ok(savedMapping);
     }
