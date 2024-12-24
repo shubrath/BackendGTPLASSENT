@@ -15,11 +15,11 @@ public class Organization {
     @Column(name = "name", nullable = false, length = 100)
     private String name;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "super_admin_id", nullable = false)
     private SuperAdmin superAdmin;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "admin_id", nullable = false)
     private Admin admin;
 

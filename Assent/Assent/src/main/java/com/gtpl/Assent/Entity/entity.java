@@ -20,11 +20,11 @@ public class entity {
     @Column(name = "entity_desc", length = 255)
     private String entityDesc;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "organization_id", nullable = false)
     private Organization organization;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "admin_id", nullable = false)
     private Admin admin;
 

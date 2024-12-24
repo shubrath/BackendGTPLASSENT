@@ -17,24 +17,25 @@ public class User {
     @Column(nullable = false, unique = true, length = 100)
     private String email;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL,optional = false)
     @JoinColumn(name = "organization_id", nullable = false)
     private Organization organization;
 
     @Column(nullable = false, length = 50)
     private String department;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Status status;
-    
-    
-    
-    
-    
-    
+	@Enumerated(EnumType.STRING)
+	@Column(nullable = false)
+	private Status status;
 
-    public Integer getUserId() {
+
+
+
+
+
+
+
+	public Integer getUserId() {
 		return userId;
 	}
 
@@ -183,6 +184,6 @@ public class User {
 
 
 	public enum Status {
-        ACTIVE, INACTIVE
-    }
+		ACTIVE, INACTIVE
+	}
 }
